@@ -1,7 +1,11 @@
-import { Link } from 'react-router-dom'
-import './RecipeList.css'
+import { Link } from 'react-router-dom';
+import './RecipeList.css';
 
 const RecipeList = ({ recipes }) => {
+  if (recipes.length === 0) {
+    return <div className='error'>No recipes to show...</div>;
+  }
+
   return (
     <div className='recipe-list'>
       {recipes.map((recipe) => (
@@ -13,6 +17,6 @@ const RecipeList = ({ recipes }) => {
         </div>
       ))}
     </div>
-  )
-}
-export default RecipeList
+  );
+};
+export default RecipeList;
